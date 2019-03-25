@@ -1,7 +1,7 @@
 #Sorts
 
 * (OK) Quick Sort 
-* (  ) Merge Sort 
-* (  ) Heap Sort 
-* (  ) Shell Sort
+* (OK) Merge Sort 
+* (OK) Heap Sort 
+* (OK) Shell Sort
 * (OK) Selection Sort
