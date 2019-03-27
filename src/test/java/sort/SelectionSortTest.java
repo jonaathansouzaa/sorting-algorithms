@@ -19,6 +19,8 @@ public class SelectionSortTest {
 		selectionSort.selectionSort(vetor);
 		long tempoFinal = System.currentTimeMillis();
 		System.out.println("Executado em = " + (tempoFinal - tempoInicial) + " ms");
+		System.out.println("Troca: " + selectionSort.getRetornaDados().get(SortKeys.KEY_TROCA));
+		System.out.println("Comparações: " + selectionSort.getRetornaDados().get(SortKeys.KEY_COMPARA));
 	}
 	
 }
