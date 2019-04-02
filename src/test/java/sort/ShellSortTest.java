@@ -2,24 +2,23 @@ package sort;
 
 import org.junit.Test;
 
-public class MergeSortTest {
-	
+public class ShellSortTest {
+
 	@Test
-	public void positiveTest() {
+	public void testSomeLibraryMethod() {
 		int quantidade = 1000;
 		int[] vetor = new int[quantidade];
 		for (int i = 0; i < vetor.length; i++) {
 			vetor[i] = (int) (Math.random() * quantidade);
 		}
-
-		long tempoInicial = System.currentTimeMillis();
-		MergeSort mergeSort = new MergeSort();
-		mergeSort.mergeSort(vetor, vetor.length);
-		long tempoFinal = System.currentTimeMillis();
 		
+		long tempoInicial = System.currentTimeMillis();
+		ShellSort shellSort = new ShellSort();
+		shellSort.shellSort(vetor);
+		long tempoFinal = System.currentTimeMillis();
 		System.out.println("Executado em = " + (tempoFinal - tempoInicial) + " ms");
-		System.out.println("Comparações: " + mergeSort.getRetornoDados().get(SortKeys.KEY_COMPARA));
-		System.out.println("Troca: " + mergeSort.getRetornoDados().get(SortKeys.KEY_TROCA));
+		System.out.println("Troca: " + shellSort.getRetornaDados().get(SortKeys.KEY_TROCA));
+		System.out.println("Comparações: " + shellSort.getRetornaDados().get(SortKeys.KEY_COMPARA));
 	}
 	
 }

@@ -2,8 +2,8 @@ package sort;
 
 import org.junit.Test;
 
-public class MergeSortTest {
-	
+public class HeapSortTest {
+
 	@Test
 	public void positiveTest() {
 		int quantidade = 1000;
@@ -13,13 +13,13 @@ public class MergeSortTest {
 		}
 
 		long tempoInicial = System.currentTimeMillis();
-		MergeSort mergeSort = new MergeSort();
-		mergeSort.mergeSort(vetor, vetor.length);
+		HeapSort heapSort = new HeapSort();
+		heapSort.heapSort(vetor);
 		long tempoFinal = System.currentTimeMillis();
 		
 		System.out.println("Executado em = " + (tempoFinal - tempoInicial) + " ms");
-		System.out.println("Comparações: " + mergeSort.getRetornoDados().get(SortKeys.KEY_COMPARA));
-		System.out.println("Troca: " + mergeSort.getRetornoDados().get(SortKeys.KEY_TROCA));
+		System.out.println("Comparações: " + heapSort.getRetornoDados().get(SortKeys.KEY_COMPARA));
+		System.out.println("Troca: " + heapSort.getRetornoDados().get(SortKeys.KEY_TROCA));
 	}
-	
+
 }

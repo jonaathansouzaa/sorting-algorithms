@@ -1,8 +1,19 @@
 package sort;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MergeSort {
 	
-	public static void mergeSort(int[] array, int lenght) {
+	private Long troca;
+	private Long compara;
+	
+	public MergeSort() {
+		this.troca = 0L;
+		this.compara = 0L;
+	}
+	
+	public void mergeSort(int[] vetor, int lenght) {
 		if (lenght < 2) {
 			return;
 		}
@@ -11,32 +22,47 @@ public class MergeSort {
 		int[] right = new int[lenght - mid];
 
 		for (int count = 0; count < mid; count++) {
-			left[count] = array[count];
+			troca++;
+			left[count] = vetor[count];
 		}
 		for (int count = mid; count < lenght; count++) {
-			right[count - mid] = array[count];
+			troca++;
+			right[count - mid] = vetor[count];
 		}
 		mergeSort(left, mid);
 		mergeSort(right, lenght - mid);
 
-		merge(array, left, right, mid, lenght - mid);
+		merge(vetor, left, right, mid, lenght - mid);
 	}
 
-	public static void merge(int[] array, int[] leftArray, int[] rightArray, int left, int right) {
+	public void merge(int[] vetor, int[] leftArray, int[] rightArray, int left, int right) {
 		int leftColumn = 0, rightColumn = 0, k = 0;
 		while (leftColumn < left && rightColumn < right) {
+			compara++;
 			if (leftArray[leftColumn] <= rightArray[rightColumn]) {
-				array[k++] = leftArray[leftColumn++];
+				troca(vetor, k++, leftArray, leftColumn++);
 			} else {
-				array[k++] = rightArray[rightColumn++];
+				troca(vetor, k++, rightArray, rightColumn++);
 			}
 		}
 		while (leftColumn < left) {
-			array[k++] = leftArray[leftColumn++];
+			troca(vetor, k++, leftArray, leftColumn++);
 		}
 		while (rightColumn < right) {
-			array[k++] = rightArray[rightColumn++];
+			troca(vetor, k++, rightArray, rightColumn++);
 		}
+	}
+	
+	public void troca(int vetor[], int posicaoVetor, int[] vetorAuxiliar, int posicaoAuxiliar) {
+		vetor[posicaoVetor] = vetorAuxiliar[posicaoAuxiliar];
+		troca++;
+	}
+	
+	public Map<String, Long> getRetornoDados() {
+		Map<String, Long> retornoDados = new HashMap<String, Long>();
+		retornoDados.put(SortKeys.KEY_TROCA, troca);
+		retornoDados.put(SortKeys.KEY_COMPARA, compara);
+		return retornoDados;
 	}
 
 }
