@@ -26,30 +26,28 @@ public class QuickSort {
 		int esquerda = inicio + 1;
 		int direita = fim;
 		while (esquerda <= direita) {
-			compara++;
 			if (vetor[esquerda] <= pivo) {
 				compara++;
 				esquerda++;
 			} else if (pivo < vetor[direita]) {
-				compara++;
+				compara += 2;
 				direita--;
 			} else {
-				compara++;
-				troca++;
+				compara += 2;
 				troca(vetor, esquerda, direita);
 				esquerda++;
 				direita--;
 			}
 		}
 		troca(vetor, inicio, direita);
-		troca++;
 		return direita;
 	}
 
 	private void troca(int[] vetor, int esquerda, int direita) {
-		int troca = vetor[esquerda];
+		int temp = vetor[esquerda];
 		vetor[esquerda] = vetor[direita];
-		vetor[direita] = troca;
+		vetor[direita] = temp;
+		troca++;
 	}
 
 	public Map<String, Long> getRetornoDados() {

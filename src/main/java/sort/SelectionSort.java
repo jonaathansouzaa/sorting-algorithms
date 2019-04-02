@@ -16,26 +16,26 @@ public class SelectionSort {
 		this.compara = 0L;
 	}
 	
-	public void selectionSort(int[] array) {
-		for (Integer fixo = 0; fixo < array.length - 1; fixo++) {
+	public void selectionSort(int[] vetor) {
+		for (Integer fixo = 0; fixo < vetor.length - 1; fixo++) {
 			Integer menor = fixo;
-			for (Integer i = menor + 1; i < array.length; i++) {
-				compara++; 
-				if (array[i] < array[menor]) {
+			for (Integer i = menor + 1; i < vetor.length; i++) {
+				compara++;
+				if (vetor[i] < vetor[menor]) {
 					menor = i;
 				}
 			}
 			if (menor != fixo) {
-				troca(array, fixo, menor);
-				troca++;
+				troca(vetor, fixo, menor);
 			}
 		}
 	}
 
 	private void troca(int[] array, Integer fixo, Integer menor) {
-		int t = array[fixo];
+		int temp = array[fixo];
 		array[fixo] = array[menor];
-		array[menor] = t;
+		array[menor] = temp;
+		troca++;
 	}
 
 	public Map<String, Long> getRetornaDados() {

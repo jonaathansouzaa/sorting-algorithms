@@ -13,32 +13,19 @@ public class ShellSort {
 		this.compara = 0L;
 	}
 
-	/* function to sort arr using shellSort */
 	public void shellSort(int vetor[]) {
 		int tamanho = vetor.length;
 
-		// Start with a big gap, then reduce the gap
 		for (int gap = tamanho / 2; gap > 0; gap /= 2) {
-			// Do a gapped insertion sort for this gap size.
-			// The first gap elements a[0..gap-1] are already
-			// in gapped order keep adding one more element
-			// until the entire array is gap sorted
 			for (int contadorUm = gap; contadorUm < tamanho; contadorUm += 1) {
-				// add a[i] to the elements that have been gap
-				// sorted save a[i] in temp and make a hole at
-				// position i
 				int temp = vetor[contadorUm];
-
-				// shift earlier gap-sorted elements up until
-				// the correct location for a[i] is found
 				int contadorDois;
 				for (contadorDois = contadorUm; contadorDois >= gap && vetor[contadorDois - gap] > temp; contadorDois -= gap) {
-					compara++;
+					compara += 2;
 					vetor[contadorDois] = vetor[contadorDois - gap];
+					troca++;
 				}
-
-				// put temp (the original a[i]) in its correct
-				// location
+				compara++;
 				vetor[contadorDois] = temp;
 				troca++;
 			}

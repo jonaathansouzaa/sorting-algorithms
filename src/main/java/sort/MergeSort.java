@@ -38,12 +38,11 @@ public class MergeSort {
 	public void merge(int[] vetor, int[] leftArray, int[] rightArray, int left, int right) {
 		int leftColumn = 0, rightColumn = 0, k = 0;
 		while (leftColumn < left && rightColumn < right) {
+			compara++;
 			if (leftArray[leftColumn] <= rightArray[rightColumn]) {
 				troca(vetor, k++, leftArray, leftColumn++);
-				compara++;
 			} else {
 				troca(vetor, k++, rightArray, rightColumn++);
-				compara++;
 			}
 		}
 		while (leftColumn < left) {

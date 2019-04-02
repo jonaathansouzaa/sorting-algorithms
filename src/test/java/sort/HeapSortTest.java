@@ -11,7 +11,7 @@ public class HeapSortTest {
 		for (int i = 0; i < vetor.length; i++) {
 			vetor[i] = (int) (Math.random() * quantidade);
 		}
-		
+
 		long tempoInicial = System.currentTimeMillis();
 		HeapSort heapSort = new HeapSort();
 		heapSort.heapSort(vetor);

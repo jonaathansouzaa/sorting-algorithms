@@ -6,11 +6,12 @@ public class ShellSortTest {
 
 	@Test
 	public void testSomeLibraryMethod() {
-		int quantidade = 10000;
+		int quantidade = 1000;
 		int[] vetor = new int[quantidade];
 		for (int i = 0; i < vetor.length; i++) {
 			vetor[i] = (int) (Math.random() * quantidade);
 		}
+		
 		long tempoInicial = System.currentTimeMillis();
 		ShellSort shellSort = new ShellSort();
 		shellSort.shellSort(vetor);
